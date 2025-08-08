@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/", methods=['POST','GET'])
 def home():
     if request.method == 'POST':
-        records = searchRecords(request.form.get("term"))
+        records = searchRecords(request.form.get("term"), request.form.get("numResults"))
         return render_template("searchPage.html", results = records)
     return render_template("searchPage.html", results = [])
 

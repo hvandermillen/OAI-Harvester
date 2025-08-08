@@ -1,7 +1,7 @@
 from sickle import Sickle
 
 
-def searchRecords(searchTerm):
+def searchRecords(searchTerm, numResults):
     #harvard "worlds of change" digital collection
     woc = Sickle('https://api.lib.harvard.edu/oai/')
 
@@ -12,11 +12,11 @@ def searchRecords(searchTerm):
     results = []
 
     count = 0
-    max = 10 #only list 10 records for now
+    max = int(numResults) #how many results to return
 
     #display all records with a given searchterm
     for record in records:
-        if (count > max):
+        if (count >= max):
             break
 
         nameRaw = record.metadata.get('title')
