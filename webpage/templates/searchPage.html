@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form action = "/", method="post">
+            <p>Enter Search Term:</p>
+            <p><input name = "term"></p>
+            <p><input type = "submit" value = "submit" /></p>
+        </form>
+        <ul>
+            {% for result in results %}
+                <li>{{result}}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
