@@ -1,10 +1,14 @@
 from flask import Flask, request, render_template
+from util.harvester import searchRecords
+import asyncio
+
 app = Flask(__name__)
 
 @app.route("/", methods=['POST','GET'])
 def home():
     if request.method == 'POST':
-        return render_template("searchPage.html", results = ["a","b","c"])
+        records = searchRecords(request.form.get("term"))
+        return render_template("searchPage.html", results = records)
     return render_template("searchPage.html", results = [])
 
 # main driver function

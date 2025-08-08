@@ -8,7 +8,7 @@
         </form>
         <ul>
             {% for result in results %}
-                <li>{{result}}</li>
+                <li><a href={{result[1]}}>{{result[0]}}</a></li>
             {% endfor %}
         </ul>
     </body>
